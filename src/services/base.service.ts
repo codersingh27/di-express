@@ -10,17 +10,17 @@ export default class BaseService<T>{
         this.model = model.model
     }
 
-    async post(data: T){
+    post = async (data: T) => {
         const resourse = await this.model.create(data)
         return resourse
     }
 
-    async get(filters = {}): Promise<T[]>{
+    get = async (filters = {}): Promise<T[]> =>{
         const resource = await this.model.find(filters) as T[]
         return resource
     }
 
-    async getById(id: string): Promise<T>{
+    getById = async (id: string): Promise<T> => {
         const resource = await this.model.findOne({_id: mongoose.Types.ObjectId(id)}) as T
         return resource
     }

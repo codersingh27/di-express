@@ -18,6 +18,12 @@ export default class UserModel implements ModelI{
         password: {
             type: String,
             required: true
+        },
+        posts: {
+            type: [{
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "posts"
+            }]
         }
     }, {
         timestamps: true
